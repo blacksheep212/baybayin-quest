@@ -1,13 +1,17 @@
 package com.example.baybayinquest;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
-import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.HashSet;
 
 public class GameActivity extends AppCompatActivity {
     private List<Question> questions;
@@ -22,11 +26,16 @@ public class GameActivity extends AppCompatActivity {
     Button btnSubmit, btnNext;
     TextView tvQuestionCount;
 
+    SharedPreferences prefs;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        prefs = getSharedPreferences("GameStats", MODE_PRIVATE);
+        editor = prefs.edit();
 
         // UI refs
         tvLevel = findViewById(R.id.tvLevel);
@@ -37,17 +46,27 @@ public class GameActivity extends AppCompatActivity {
         btnNext = findViewById(R.id.btnNext);
         tvQuestionCount = findViewById(R.id.tvQuestionCount);
 
-
-
-        // Get current level
         int level = getIntent().getIntExtra("level", 1);
         tvLevel.setText("Level " + level);
+
+        // --- Track how many times a level has been played ---
+        String levelKey = "levelCount_" + level;
+        int timesPlayed = prefs.getInt(levelKey, 0) + 1;
+        editor.putInt(levelKey, timesPlayed);
+
+        // --- Track most repeated level ---
+        int highestCount = prefs.getInt("mostRepeatedCount", 0);
+        if (timesPlayed > highestCount) {
+            editor.putInt("mostRepeatedLevel", level);
+            editor.putInt("mostRepeatedCount", timesPlayed);
+        }
+
+        editor.apply();
 
         // Load questions
         questions = getQuestionsForLevel(level);
         loadQuestion(currentQuestionIndex);
 
-        // Submit answer
         btnSubmit.setOnClickListener(v -> {
             int selectedId = radioGroup.getCheckedRadioButtonId();
             if (selectedId == -1) {
@@ -59,30 +78,52 @@ public class GameActivity extends AppCompatActivity {
             String answer = selected.getText().toString();
             Question current = questions.get(currentQuestionIndex);
 
+            // Update stats
+            int totalAnswered = prefs.getInt("totalAnswered", 0) + 1;
+            editor.putInt("totalAnswered", totalAnswered);
+
+            int currentStreak = prefs.getInt("currentStreak", 0);
+
             if (answer.equals(current.getCorrectAnswer())) {
                 correctAnswers++;
                 score++;
+                currentStreak++;
+
+                int bestStreak = prefs.getInt("bestStreak", 0);
+                if (currentStreak > bestStreak) {
+                    editor.putInt("bestStreak", currentStreak);
+                }
+
+                int correct = prefs.getInt("correctAnswers", 0) + 1;
+                editor.putInt("correctAnswers", correct);
+
                 tvFeedback.setText("Correct!");
                 tvFeedback.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
             } else {
+                currentStreak = 0;
+
+                int incorrect = prefs.getInt("incorrectAnswers", 0) + 1;
+                editor.putInt("incorrectAnswers", incorrect);
+
                 tvFeedback.setText("Incorrect!");
                 tvFeedback.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
             }
+
+            editor.putInt("currentStreak", currentStreak);
+            editor.apply();
 
             tvFeedback.setVisibility(View.VISIBLE);
             btnNext.setVisibility(View.VISIBLE);
             btnSubmit.setEnabled(false);
         });
 
-
-        // Next question or finish level
         btnNext.setOnClickListener(v -> {
             currentQuestionIndex++;
 
             if (currentQuestionIndex < questions.size()) {
                 loadQuestion(currentQuestionIndex);
             } else {
-                // Level finished - check score
+                // Level finished
                 if (correctAnswers >= PASSING_SCORE) {
                     int currentLevel = getIntent().getIntExtra("level", 1);
                     int savedLevel = Prefs.getUnlockedLevel(this);
@@ -91,10 +132,25 @@ public class GameActivity extends AppCompatActivity {
                         Prefs.setUnlockedLevel(this, currentLevel + 1);
                     }
 
+                    int completed = prefs.getInt("levelsCompleted", 0) + 1;
+                    editor.putInt("levelsCompleted", completed);
+                    editor.apply();
+
                     Toast.makeText(this, "Level Passed! ✅", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(this, "Level Failed ❌\nScore: " + correctAnswers + "/" + questions.size(), Toast.LENGTH_LONG).show();
                 }
+
+                // --- Track average score per level ---
+                String scoreKey = "scoreSum_" + level;
+                String countKey = "scoreCount_" + level;
+
+                int sum = prefs.getInt(scoreKey, 0) + score;
+                int count = prefs.getInt(countKey, 0) + 1;
+
+                editor.putInt(scoreKey, sum);
+                editor.putInt(countKey, count);
+                editor.apply();
 
                 Intent intent = new Intent(GameActivity.this, LevelCompleteActivity.class);
                 intent.putExtra("correctAnswers", score);
@@ -102,7 +158,6 @@ public class GameActivity extends AppCompatActivity {
                 intent.putExtra("level", level);
                 startActivity(intent);
                 finish();
-
             }
         });
 
@@ -116,22 +171,18 @@ public class GameActivity extends AppCompatActivity {
                         Intent intent = new Intent(GameActivity.this, LevelSelectActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                         startActivity(intent);
-                        finish(); // ensure user can't press back to return
+                        finish();
                     })
                     .setNegativeButton("No", null)
                     .show();
         });
-
     }
 
     private void loadQuestion(int index) {
         Question q = questions.get(index);
         tvBaybayinSymbol.setText(q.getSymbol());
-
-        // Update question count (e.g., "Question 3/10")
         tvQuestionCount.setText("Question " + (index + 1) + "/" + questions.size());
 
-        // Update choices
         RadioButton[] options = {
                 findViewById(R.id.choice1),
                 findViewById(R.id.choice2),
@@ -143,7 +194,6 @@ public class GameActivity extends AppCompatActivity {
             options[i].setText(q.getChoices()[i]);
         }
 
-        // Reset selection and feedback
         radioGroup.clearCheck();
         tvFeedback.setVisibility(View.GONE);
         btnNext.setVisibility(View.GONE);
