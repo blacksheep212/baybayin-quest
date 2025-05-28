@@ -86,17 +86,17 @@
         android:layout_marginTop="32dp" />
 
     <Button
-        android:id="@+id/reviewSignsButton"
+        android:id="@+id/checkProgressButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Review Signs"
-        android:textSize="18sp"
+        android:layout_marginTop="16dp"
         android:backgroundTint="@color/purple_500"
+        android:text="Check Progress"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/startQuizButton"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/startQuizButton" />
 
     <Button
         android:id="@+id/learnNewSignsButton"
@@ -106,7 +106,7 @@
         android:textSize="18sp"
         android:backgroundTint="@color/purple_500"
         android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/reviewSignsButton"
+        app:layout_constraintTop_toBottomOf="@id/checkProgressButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="16dp" />

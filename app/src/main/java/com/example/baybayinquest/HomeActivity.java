@@ -2,7 +2,6 @@ package com.example.baybayinquest;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
@@ -19,7 +18,7 @@ public class HomeActivity extends AppCompatActivity {
 
     private ProgressBar xpProgressBar;
     private TextView xpText, streakText;
-    private Button startQuizButton, reviewSignsButton, learnNewSignsButton;
+    private Button startQuizButton, checkProgressButton, learnNewSignsButton;
     private ImageButton navHome, navProgress, navProfile;
 
     @Override
@@ -39,7 +38,7 @@ public class HomeActivity extends AppCompatActivity {
         xpText = findViewById(R.id.xpText);
         streakText = findViewById(R.id.streakText);
         startQuizButton = findViewById(R.id.startQuizButton);
-        reviewSignsButton = findViewById(R.id.reviewSignsButton);
+        checkProgressButton = findViewById(R.id.checkProgressButton);
         learnNewSignsButton = findViewById(R.id.learnNewSignsButton);
         navHome = findViewById(R.id.navHome);
         navProgress = findViewById(R.id.navProgress);
@@ -52,18 +51,18 @@ public class HomeActivity extends AppCompatActivity {
 
         // Button click listeners
         startQuizButton.setOnClickListener(v -> {
-            // startActivity(new Intent(this, QuizActivity.class));
-            Toast.makeText(this, "Start Quiz clicked", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(this, QuizActivity.class));
+            // Toast.makeText(this, "Start Quiz clicked", Toast.LENGTH_SHORT).show();
         });
 
-        reviewSignsButton.setOnClickListener(v -> {
-            // startActivity(new Intent(this, ReviewSignsActivity.class));
-            Toast.makeText(this, "Review Signs clicked", Toast.LENGTH_SHORT).show();
+        checkProgressButton.setOnClickListener(v -> {
+            startActivity(new Intent(this, ProgressActivity.class));
+            // Toast.makeText(this, "Review Signs clicked", Toast.LENGTH_SHORT).show();
         });
 
         learnNewSignsButton.setOnClickListener(v -> {
-            // startActivity(new Intent(this, LearnNewSignsActivity.class));
-            Toast.makeText(this, "Learn New Signs clicked", Toast.LENGTH_SHORT).show();
+            //startActivity(new Intent(this, LearnNewSignsActivity.class));
+            // Toast.makeText(this, "Learn New Signs clicked", Toast.LENGTH_SHORT).show();
         });
 
         // Bottom Nav listeners (placeholder)
