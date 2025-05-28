@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -23,7 +24,7 @@
                 android:id="@+id/tvSelectLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="🧩 Select a Level"
+                android:text=" Select a Level"
                 android:textSize="26sp"
                 android:textStyle="bold"
                 android:textColor="#FFFFFF"
@@ -54,29 +55,34 @@
         android:gravity="center"
         android:padding="16dp">
 
-        <Button
+        <!-- Menu Button with Gradient -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBackToMenu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="↩️ Menu"
-            android:background="@drawable/btn_secondary"
-            android:textColor="#2E2E2E"
+            android:text=" Menu"
+            android:background="@drawable/btn_gradient"
+            app:backgroundTint="@null"
+            android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:padding="14dp"
             android:textAllCaps="false"
             android:layout_marginEnd="8dp" />
 
-        <Button
+        <!-- Reset Button with Exit Gradient -->
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnResetProgress"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="🔄 Reset"
-            android:background="@drawable/btn_exit"
+            android:text=" Reset"
+            android:background="@drawable/btn_gradient"
+            app:backgroundTint="@null"
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             android:padding="14dp"
             android:textAllCaps="false" />
+
     </LinearLayout>
 </LinearLayout>

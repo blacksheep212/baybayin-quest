@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="24dp"
@@ -10,17 +10,18 @@
 
     <!-- Trophy Icon -->
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/ic_trophy"
-        android:layout_marginBottom="16dp" />
+        android:layout_width="256dp"
+        android:layout_height="252dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="Game Logo"
+        android:src="@drawable/baybayin_quest" />
 
     <!-- Title -->
     <TextView
         android:id="@+id/tvLevelComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="🎉 Level Complete!"
+        android:text="Level Complete!"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="#FFFFFF"
@@ -35,7 +36,7 @@
         android:id="@+id/tvScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="You got 8/10 correct ✅"
+        android:text="You got 8/10 correct "
         android:textSize="20sp"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
@@ -46,47 +47,52 @@
         android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Great job! Keep it up!"
         android:textSize="16sp"
         android:textColor="#FFFFFF"
         android:textAlignment="center"
         android:layout_marginBottom="24dp" />
 
     <!-- Back to Levels -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnBackToLevels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="↩️ Back to Levels"
-        android:background="@drawable/btn_secondary"
-        android:textColor="#2E2E2E"
-        android:textStyle="bold"
+        android:text=" Back to Levels"
         android:textAllCaps="false"
-        android:padding="14dp" />
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:padding="14dp"
+        android:background="@drawable/btn_gradient"
+        app:backgroundTint="@null" />
+
 
     <!-- Retry -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRetry"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="🔁 Retry"
+        android:text=" Retry"
         android:layout_marginTop="16dp"
-        android:background="@drawable/btn_exit"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textAllCaps="false"
-        android:padding="14dp" />
+        android:padding="14dp"
+        android:background="@drawable/btn_gradient"
+        app:backgroundTint="@null" />
+
 
     <!-- Next Level -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnNextLevel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="➡️ Next Level"
+        android:text="️ Next Level"
         android:layout_marginTop="12dp"
-        android:background="@drawable/btn_primary"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:textAllCaps="false"
-        android:padding="14dp" />
+        android:padding="14dp"
+        android:background="@drawable/btn_gradient"
+        app:backgroundTint="@null" />
+
 </LinearLayout>

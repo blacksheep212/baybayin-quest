@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/scrollViewStats"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="#EAEAEA">
+    android:padding="16dp"
+    android:background="@drawable/bg_gradient">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,86 +16,172 @@
             android:id="@+id/tvStatsTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Your Game Stats"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:layout_gravity="center"
-            android:layout_marginBottom="24dp"
-            android:textColor="#4B2E83" />
-
-        <!-- Stats List -->
-        <TextView
-            android:id="@+id/tvLevelsCompleted"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Levels Completed: 0"
-            android:textSize="18sp"
-            android:layout_marginBottom="12dp" />
-
-        <TextView
-            android:id="@+id/tvQuestionsAnswered"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Questions Answered: 0"
-            android:textSize="18sp"
-            android:layout_marginBottom="12dp" />
-
-        <TextView
-            android:id="@+id/tvCorrectAnswers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Correct Answers: 0"
-            android:textSize="18sp"
-            android:layout_marginBottom="12dp" />
-
-        <TextView
-            android:id="@+id/tvIncorrectAnswers"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Incorrect Answers: 0"
-            android:textSize="18sp"
-            android:layout_marginBottom="12dp" />
-
-        <TextView
-            android:id="@+id/tvMostRepeated"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Most Repeated Level: N/A"
+            android:layout_gravity="center_horizontal"
             android:layout_marginBottom="12dp"
-            android:textSize="18sp" />
+            android:shadowColor="#000000"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:text=" Your Game Stats"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/tvCurrentStreak"
-            android:layout_width="wrap_content"
+        <!-- Stat Boxes -->
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Current Streak: 0"
-            android:layout_marginBottom="12dp"
-            android:textSize="18sp" />
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvBestStreak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Best Streak: 0"
-            android:textSize="18sp"
-            android:layout_marginBottom="12dp" />
+            <!-- Single Stat Box Template -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
 
-        <TextView
-            android:id="@+id/tvAccuracyRate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Accuracy Rate: 0%"
-            android:textSize="18sp"
-            android:layout_marginBottom="32dp" />
+                <TextView
+                    android:id="@+id/tvLevelsCompleted"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Levels Completed: 0"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvQuestionsAnswered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Questions Answered: 0"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvCorrectAnswers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Correct Answers: 0"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvIncorrectAnswers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Incorrect Answers: 0"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvMostRepeated"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Most Repeated Level: N/A"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvCurrentStreak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current Streak: 0"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvBestStreak"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Best Streak: 0"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical"
+                android:background="@drawable/bg_section"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tvAccuracyRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Accuracy Rate: 0%"
+                    android:textSize="16sp"
+                    android:textColor="#333333" />
+            </LinearLayout>
+        </LinearLayout>
 
         <!-- Back Button -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnBackToMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Back to Main Menu"
-            android:textAllCaps="true" />
-
+            android:text="️ Back to Menu"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="12dp"
+            android:background="@drawable/btn_gradient"
+            app:backgroundTint="@null" />
     </LinearLayout>
 </ScrollView>
