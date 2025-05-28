@@ -5,58 +5,88 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@drawable/bg_gradient">
 
+    <!-- Trophy Icon -->
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_trophy"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Title -->
     <TextView
         android:id="@+id/tvLevelComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Level Complete!"
-        android:textSize="24sp"
+        android:text="🎉 Level Complete!"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"/>
+        android:textColor="#FFFFFF"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"
+        android:layout_marginBottom="12dp" />
 
+    <!-- Score -->
     <TextView
         android:id="@+id/tvScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="You got 8/10 correct"
+        android:text="You got 8/10 correct ✅"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
         android:textAlignment="center"
-        android:textSize="18sp" />
+        android:layout_marginBottom="12dp" />
 
+    <!-- Message (Optional feedback) -->
     <TextView
         android:id="@+id/tvMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:text=""
+        android:text="Great job! Keep it up!"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
         android:textAlignment="center"
-        android:textSize="16sp" />
+        android:layout_marginBottom="24dp" />
 
-
+    <!-- Back to Levels -->
     <Button
         android:id="@+id/btnBackToLevels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Back to Levels"/>
+        android:text="↩️ Back to Levels"
+        android:background="@drawable/btn_secondary"
+        android:textColor="#2E2E2E"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:padding="14dp" />
 
+    <!-- Retry -->
     <Button
         android:id="@+id/btnRetry"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Retry"
+        android:text="🔁 Retry"
         android:layout_marginTop="16dp"
-        android:layout_gravity="center_horizontal" />
+        android:background="@drawable/btn_exit"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:padding="14dp" />
 
+    <!-- Next Level -->
     <Button
         android:id="@+id/btnNextLevel"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Next Level"
-        android:layout_marginTop="8dp"
-        android:layout_gravity="center_horizontal" />
-
-
+        android:text="➡️ Next Level"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_primary"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:padding="14dp" />
 </LinearLayout>
