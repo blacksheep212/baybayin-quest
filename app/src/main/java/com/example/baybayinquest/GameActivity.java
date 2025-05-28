@@ -1,6 +1,7 @@
 package com.example.baybayinquest;
 
 import android.os.Bundle;
+import android.content.Intent;
 import android.view.View;
 import android.widget.*;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,7 +14,7 @@ public class GameActivity extends AppCompatActivity {
 
     private int correctAnswers = 0;
     private static final int PASSING_SCORE = 7;
-
+    private int score = 0;
 
     TextView tvLevel, tvBaybayinSymbol, tvFeedback;
     RadioGroup radioGroup;
@@ -34,7 +35,6 @@ public class GameActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         btnNext = findViewById(R.id.btnNext);
         tvQuestionCount = findViewById(R.id.tvQuestionCount);
-
 
         // Get current level
         int level = getIntent().getIntExtra("level", 1);
@@ -58,6 +58,7 @@ public class GameActivity extends AppCompatActivity {
 
             if (answer.equals(current.getCorrectAnswer())) {
                 correctAnswers++;
+                score++;
                 tvFeedback.setText("Correct!");
                 tvFeedback.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
             } else {
@@ -92,7 +93,13 @@ public class GameActivity extends AppCompatActivity {
                     Toast.makeText(this, "Level Failed ❌\nScore: " + correctAnswers + "/" + questions.size(), Toast.LENGTH_LONG).show();
                 }
 
-                finish(); // Return to LevelSelectActivity
+                Intent intent = new Intent(GameActivity.this, LevelCompleteActivity.class);
+                intent.putExtra("correctAnswers", score);
+                intent.putExtra("totalQuestions", questions.size());
+                intent.putExtra("level", level);
+                startActivity(intent);
+                finish();
+
             }
         });
     }
