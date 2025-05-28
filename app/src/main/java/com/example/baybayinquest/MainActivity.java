@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnViewStats.setOnClickListener(view -> {
             // Replace with StatsActivity when created
-            // startActivity(new Intent(MainActivity.this, StatsActivity.class));
+            startActivity(new Intent(MainActivity.this, StatsActivity.class));
         });
 
         btnGlossary.setOnClickListener(view -> {

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollViewStats"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#EAEAEA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tvStatsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Game Stats"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:textColor="#4B2E83" />
+
+        <!-- Stats List -->
+        <TextView
+            android:id="@+id/tvLevelsCompleted"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Levels Completed: 0"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/tvQuestionsAnswered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Questions Answered: 0"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/tvCorrectAnswers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Correct Answers: 0"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/tvIncorrectAnswers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Incorrect Answers: 0"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/tvMostRepeated"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Most Repeated Level: N/A"
+            android:layout_marginBottom="12dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvCurrentStreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Streak: 0"
+            android:layout_marginBottom="12dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tvBestStreak"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Best Streak: 0"
+            android:textSize="18sp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:id="@+id/tvAccuracyRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accuracy Rate: 0%"
+            android:textSize="18sp"
+            android:layout_marginBottom="32dp" />
+
+
+        <!-- Back Button -->
+        <Button
+            android:id="@+id/btnBackToMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Back to Main Menu"
+            android:textAllCaps="true" />
+
+    </LinearLayout>
+</ScrollView>
