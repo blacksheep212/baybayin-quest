@@ -18,18 +18,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_main);
 
+        // Set your home layout XML here:
+        setContentView(R.layout.activity_main);  // <-- ensure this matches your actual XML file name
+
+        // Apply window insets padding for edge-to-edge display
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
 
-        // Initialize database helper
+        // Initialize your database helper
         BaybayinDatabaseHelper dbHelper = new BaybayinDatabaseHelper(this);
 
-        // Test retrieving all characters
+        // Test retrieving all characters (for debug purposes)
         List<BaybayinDatabaseHelper.BaybayinCharacter> characters = dbHelper.getAllCharacters();
         for (BaybayinDatabaseHelper.BaybayinCharacter character : characters) {
             System.out.println("Character: " + character.getCharacter() + ", Syllable: " + character.getSyllable());
