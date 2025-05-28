@@ -1,47 +1,44 @@
 package com.example.baybayinquest;
 
+import android.content.Intent;
 import android.os.Bundle;
-
+import android.view.View;
+import android.widget.Button;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.example.baybayinquest.database.BaybayinDatabaseHelper;
-
-import java.util.List;
-
 public class MainActivity extends AppCompatActivity {
+
+    Button btnStartGame, btnViewStats, btnGlossary, btnExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
 
-        // Set your home layout XML here:
-        setContentView(R.layout.activity_main);  // <-- ensure this matches your actual XML file name
+        btnStartGame = findViewById(R.id.btnStartGame);
+        btnViewStats = findViewById(R.id.btnViewStats);
+        btnGlossary = findViewById(R.id.btnGlossary);
+        btnExit = findViewById(R.id.btnExit);
 
-        // Apply window insets padding for edge-to-edge display
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        btnStartGame.setOnClickListener(view -> {
+            // Replace with LevelSelectActivity when created
+            startActivity(new Intent(MainActivity.this, LevelSelectActivity.class));
         });
 
-        // Initialize your database helper
-        BaybayinDatabaseHelper dbHelper = new BaybayinDatabaseHelper(this);
+        btnViewStats.setOnClickListener(view -> {
+            // Replace with StatsActivity when created
+            // startActivity(new Intent(MainActivity.this, StatsActivity.class));
+        });
 
-        // Test retrieving all characters (for debug purposes)
-        List<BaybayinDatabaseHelper.BaybayinCharacter> characters = dbHelper.getAllCharacters();
-        for (BaybayinDatabaseHelper.BaybayinCharacter character : characters) {
-            System.out.println("Character: " + character.getCharacter() + ", Syllable: " + character.getSyllable());
-        }
+        btnGlossary.setOnClickListener(view -> {
+            // Replace with GlossaryActivity when created
+            // startActivity(new Intent(MainActivity.this, GlossaryActivity.class));
+        });
 
-        // Test retrieving a random character
-        BaybayinDatabaseHelper.BaybayinCharacter randomChar = dbHelper.getRandomCharacter();
-        if (randomChar != null) {
-            System.out.println("Random Character: " + randomChar.getCharacter());
-        }
+        btnExit.setOnClickListener(view -> finishAffinity()); // Closes the app
     }
 }
