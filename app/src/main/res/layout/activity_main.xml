@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -7,67 +8,71 @@
     android:padding="24dp"
     android:background="@drawable/bg_gradient">
 
-    <!-- Game Icon -->
-
-
-    <!-- Game Title -->
+    <!-- Game Logo -->
     <ImageView
         android:layout_width="256dp"
         android:layout_height="252dp"
         android:layout_marginBottom="20dp"
         android:contentDescription="Game Logo"
-        android:src="@drawable/baybayinquest" />
+        android:src="@drawable/baybayin_quest" />
 
     <!-- Start Game Button -->
-
-    <!-- View Stats -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnStartGame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/btn_primary"
         android:padding="16dp"
+        android:layout_marginTop="16dp"
         android:text="🚀 Start Game"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        android:background="@drawable/btn_gradient" />
 
-    <Button
+
+    <!-- View Stats Button -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnViewStats"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
         android:text="📊 View Stats"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:background="@drawable/btn_secondary"
-        android:textColor="#333333"
-        android:padding="16dp"
-        android:layout_marginTop="16dp" />
+        android:background="@drawable/btn_gradient"
+        app:backgroundTint="@null" />
 
-    <!-- Glossary -->
-    <Button
+    <!-- Glossary Button -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGlossary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
         android:text="📖 Glossary"
         android:textAllCaps="false"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
-        android:background="@drawable/btn_secondary"
-        android:textColor="#333333"
-        android:padding="16dp"
-        android:layout_marginTop="16dp" />
+        android:background="@drawable/btn_gradient"
+        app:backgroundTint="@null" />
 
-    <!-- Exit -->
-    <Button
+
+    <!-- Exit Button -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_marginTop="16dp"
         android:text="❌ Exit"
         android:textAllCaps="false"
-        android:textStyle="bold"
-        android:background="@drawable/btn_exit"
         android:textColor="#FFFFFF"
-        android:padding="16dp"
-        android:layout_marginTop="16dp" />
+        android:textStyle="bold"
+        android:background="@drawable/btn_gradient"
+        app:backgroundTint="@null" />
+
 
 </LinearLayout>
