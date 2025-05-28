@@ -1,6 +1,7 @@
 package com.example.baybayinquest;
 
 import android.os.Bundle;
+import androidx.appcompat.app.AlertDialog;
 import android.content.Intent;
 import android.view.View;
 import android.widget.*;
@@ -35,6 +36,8 @@ public class GameActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.btnSubmit);
         btnNext = findViewById(R.id.btnNext);
         tvQuestionCount = findViewById(R.id.tvQuestionCount);
+
+
 
         // Get current level
         int level = getIntent().getIntExtra("level", 1);
@@ -102,6 +105,23 @@ public class GameActivity extends AppCompatActivity {
 
             }
         });
+
+        Button btnQuit = findViewById(R.id.btnQuit);
+
+        btnQuit.setOnClickListener(v -> {
+            new AlertDialog.Builder(GameActivity.this)
+                    .setTitle("Quit Level")
+                    .setMessage("Are you sure you want to quit this level? Your progress will be lost.")
+                    .setPositiveButton("Yes", (dialog, which) -> {
+                        Intent intent = new Intent(GameActivity.this, LevelSelectActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                        startActivity(intent);
+                        finish(); // ensure user can't press back to return
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+        });
+
     }
 
     private void loadQuestion(int index) {

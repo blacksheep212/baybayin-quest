@@ -1,120 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:padding="24dp"
+    android:fillViewport="true"
     android:background="@drawable/bg_gradient">
 
-    <TextView
-        android:id="@+id/tvLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Level 1"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:textColor="#4B2E83"
-        android:layout_marginBottom="8dp" />
-
-    <TextView
-        android:id="@+id/tvQuestionCount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Question 1/10"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#666666"
-        android:layout_marginBottom="16dp" />
-
-    <TextView
-        android:id="@+id/tvBaybayinSymbol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ᜊ"
-        android:textSize="72sp"
-        android:textStyle="bold"
-        android:textColor="#000000"
-        android:shadowColor="#A77AFF"
-        android:shadowDx="0"
-        android:shadowDy="2"
-        android:shadowRadius="6"
-        android:layout_marginBottom="32dp" />
-
-    <RadioGroup
-        android:id="@+id/radioGroupChoices"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
-        <RadioButton
-            android:id="@+id/choice1"
+        <TextView
+            android:id="@+id/tvLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Level 1"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#4B2E83"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/tvQuestionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question 1/10"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tvBaybayinSymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ᜊ"
+            android:textSize="72sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:shadowColor="#A77AFF"
+            android:shadowDx="0"
+            android:shadowDy="2"
+            android:shadowRadius="6"
+            android:layout_marginBottom="32dp"
+            android:textAlignment="center" />
+
+        <RadioGroup
+            android:id="@+id/radioGroupChoices"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ba"
-            android:padding="12dp"
-            android:textSize="18sp"
-            android:buttonTint="#4B2E83" />
+            android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/choice2"
+            <RadioButton
+                android:id="@+id/choice1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ba"
+                android:padding="12dp"
+                android:textSize="18sp"
+                android:buttonTint="#4B2E83" />
+
+            <RadioButton
+                android:id="@+id/choice2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ka"
+                android:padding="12dp"
+                android:textSize="18sp"
+                android:buttonTint="#4B2E83" />
+
+            <RadioButton
+                android:id="@+id/choice3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="la"
+                android:padding="12dp"
+                android:textSize="18sp"
+                android:buttonTint="#4B2E83" />
+
+            <RadioButton
+                android:id="@+id/choice4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ma"
+                android:padding="12dp"
+                android:textSize="18sp"
+                android:buttonTint="#4B2E83" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ka"
-            android:padding="12dp"
-            android:textSize="18sp"
-            android:buttonTint="#4B2E83" />
+            android:text="Submit"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/btn_primary"
+            android:layout_marginTop="24dp" />
 
-        <RadioButton
-            android:id="@+id/choice3"
+        <TextView
+            android:id="@+id/tvFeedback"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#4B2E83"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/btnNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="la"
-            android:padding="12dp"
-            android:textSize="18sp"
-            android:buttonTint="#4B2E83" />
+            android:text="Next"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:background="@drawable/btn_secondary"
+            android:layout_marginTop="16dp"
+            android:visibility="gone" />
 
-        <RadioButton
-            android:id="@+id/choice4"
+        <Button
+            android:id="@+id/btnQuit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="ma"
-            android:padding="12dp"
-            android:textSize="18sp"
-            android:buttonTint="#4B2E83" />
-    </RadioGroup>
+            android:text="Quit Level"
+            android:textAllCaps="true"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/btn_quit"/>
 
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:textAllCaps="true"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:background="@drawable/btn_primary"
-        android:layout_marginTop="24dp" />
-
-    <TextView
-        android:id="@+id/tvFeedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="#4B2E83"
-        android:layout_marginTop="16dp"
-        android:visibility="gone" />
-
-    <Button
-        android:id="@+id/btnNext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Next"
-        android:textAllCaps="true"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:background="@drawable/btn_secondary"
-        android:layout_marginTop="16dp"
-        android:visibility="gone" />
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>
