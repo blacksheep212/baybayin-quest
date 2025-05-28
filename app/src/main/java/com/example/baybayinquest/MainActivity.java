@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         btnGlossary.setOnClickListener(view -> {
             // Replace with GlossaryActivity when created
-            // startActivity(new Intent(MainActivity.this, GlossaryActivity.class));
+            startActivity(new Intent(MainActivity.this, GlossaryActivity.class));
         });
 
         btnExit.setOnClickListener(view -> finishAffinity()); // Closes the app
