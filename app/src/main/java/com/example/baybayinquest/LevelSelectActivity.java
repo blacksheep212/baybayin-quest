@@ -16,7 +16,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class LevelSelectActivity extends AppCompatActivity {
 
     private GridLayout gridLevels;
-    private int totalLevels = 6; // You can add more later
+    private int totalLevels = 15; // You can add more later
     private int unlockedLevel; // You can later load this from SharedPreferences
 
 
