@@ -16,6 +16,16 @@
         android:layout_marginBottom="16dp"/>
 
     <TextView
+        android:id="@+id/tvQuestionCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question 1/10"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="8dp"/>
+
+
+    <TextView
         android:id="@+id/tvBaybayinSymbol"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
