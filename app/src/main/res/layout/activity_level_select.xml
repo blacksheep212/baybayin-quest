@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#FFF5E1">
+    android:background="@drawable/bg_gradient">
 
     <!-- Scrollable Content -->
     <ScrollView
@@ -18,23 +18,31 @@
             android:orientation="vertical"
             android:gravity="center_horizontal">
 
+            <!-- Title -->
             <TextView
                 android:id="@+id/tvSelectLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Select a Level"
-                android:textSize="24sp"
+                android:text="🧩 Select a Level"
+                android:textSize="26sp"
                 android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:shadowColor="#000000"
+                android:shadowDx="1"
+                android:shadowDy="1"
+                android:shadowRadius="2"
                 android:layout_marginBottom="24dp" />
 
+            <!-- Grid of Levels -->
             <GridLayout
                 android:id="@+id/gridLevels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="3"
                 android:alignmentMode="alignMargins"
-                android:rowCount="2"
-                android:useDefaultMargins="true" />
+                android:useDefaultMargins="true"
+                android:layout_gravity="center" />
+
         </LinearLayout>
     </ScrollView>
 
@@ -51,7 +59,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Back to Menu"
+            android:text="↩️ Menu"
+            android:background="@drawable/btn_secondary"
+            android:textColor="#2E2E2E"
+            android:textStyle="bold"
+            android:padding="14dp"
+            android:textAllCaps="false"
             android:layout_marginEnd="8dp" />
 
         <Button
@@ -59,6 +72,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Reset Progress" />
+            android:text="🔄 Reset"
+            android:background="@drawable/btn_exit"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="14dp"
+            android:textAllCaps="false" />
     </LinearLayout>
 </LinearLayout>
